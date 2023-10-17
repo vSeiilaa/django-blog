@@ -1,10 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 
 # Create your views here.
-def index(request):
-    title = 'Hexlet django bot'
-    return render(
-        request,
-        'articles/index.html',
-        context={'title': title}
-    )
+def index(request, tags, article_id):
+
+    return redirect(reverse('article', kwargs={'article_id': article_id, 'tags': tags}))
