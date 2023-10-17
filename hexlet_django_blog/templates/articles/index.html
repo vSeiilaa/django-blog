@@ -1,2 +1,9 @@
-<h1>Статья номер {{ article_id }}</h1>
-<p> Тег {{tags}} </p>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Список статей</h1>
+    {% for article in articles %}
+        <h2><a href="{{article.id}}/" >{{ article.name }}</a></h2>
+        <div>{{ article.body|slice:":200" }}</div>
+    {% endfor %}
+{% endblock %}
